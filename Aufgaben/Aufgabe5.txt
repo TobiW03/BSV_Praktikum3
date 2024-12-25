@@ -1,0 +1,10 @@
+Erläutern Sie, wie Sie die Daten vorverarbeitet haben und warum jeder Schritt notwendig
+ist.
+
+Die Vorverarbeitung der Daten erfolgt in vier Schritten. Wir beginnen mit der Offset-Entfernung, indem wir den Mittelwert des EMG-Signals berechnen und von allen Werten subtrahieren. Dadurch zentrieren wir das Signal um Null, was die Genauigkeit nachfolgender Schritte erhöht und die Daten einfacher zu verarbeiten macht.
+
+Anschließend wenden wir einen Bandpass-Filter an, um Frequenzen unter 20 Hz und über 450 Hz zu entfernen. In unserem Datensatz verwenden wir einen Bereich von 20–190 Hz, da die Sampling-Frequenz durch das Abtasttheorem begrenzt ist. Dieser Schritt filtert mögliche Störfrequenzen heraus, wie etwa sehr niedrige Frequenzen, die durch Bewegungen der elektrischen Kabel verursacht werden, oder hohe Frequenzen, die durch elektrisches Rauschen entstehen.
+
+Im dritten Schritt wird das Signal gleichgerichtet. Dabei wandeln wir alle negativen Werte in positive um. Dies ist notwendig, da wir für die Analyse der Signalstärke nur die Amplituden betrachten, die unabhängig von ihrer Polarität relevant sind.
+
+Abschließend berechnen wir die Hüllkurve des Signals. Dazu wenden wir eine Hilbert-Transformation an, um das analytische Signal zu erzeugen. Anschließend berechnen wir den Betrag des analytischen Signals, um die Amplitude zu extrahieren. Schließlich glätten wir diese Werte mit einem Tiefpassfilter bei 3 Hz, um Schwankungen zu reduzieren und die Signalstärke besser interpretieren zu können.

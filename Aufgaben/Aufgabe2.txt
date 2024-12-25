@@ -1,0 +1,4 @@
+Amplituden der Burst:
+Serial Read: i.d.R. zw. 280-330 mV; Peak: 276-361 mV
+ADC Konverter: Onset: 1200 mV, leider kein Offset, da dieser leidet nicht mitgezeichnet wurde. Der rote Graph stellt die Zeit dar, welche linear ansteigt.
+

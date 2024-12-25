@@ -1,0 +1,8 @@
+Erläutern Sie in einem Absatz, wie die Aktivität der einzelnen Muskelfasern zu dem von den EMG-Elektroden gemessenen zusammengesetzten Aktionspotenzial beiträgt. Beschreiben Sie, wie die gemessene Muskelaktivität durch die Größe und Lage der Muskelfasern bestimmt wird und wie sie durch subkutanes Fett beeinflusst wird. Erläutern Sie auch, wie das Größenprinzip bestimmt, welche Fasern mehr beitragen, wenn Aktivität und Kraft gering sind.
+
+Die von den EMG-Elektroden gemessene elektrische Aktivität resultiert aus der Summation der Aktionspotenziale aktiver Muskelfasern. Die Signalstärke wird dabei durch die Größe und Lage der Muskelfasern beeinflusst: Größere Fasern erzeugen stärkere Signale, und je näher eine Faser an der Elektrode liegt, desto höher ist der Beitrag zum EMG. Subkutanes Fett wirkt als Dämpfungsschicht und kann die Signalübertragung beeinträchtigen, was zu einer reduzierten Amplitude führt. Das Größenprinzip besagt, dass bei geringer Muskelkraft zuerst kleinere motorische Einheiten aktiviert werden, während bei steigender Belastung größere Einheiten hinzukommen, was die Intensität des EMG-Signals entsprechend erhöht.
+
+Quellen:
+https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2017.00985/full
+https://www.frontiersin.org/journals/neurology/articles/10.3389/fneur.2020.576729/full
+https://link.springer.com/article/10.1007/s00421-003-0819-1

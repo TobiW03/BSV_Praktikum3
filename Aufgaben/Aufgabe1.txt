@@ -1,0 +1,7 @@
+Bei unserem Messaufbau werden ein Laptop, ein Mikrocontroller, ein 12 Bit ADC Konverter und ein EMG/EKG-Sensor inklusive Elektroden verwendet.
+Dabei waren die Aufgaben:
+- Die Elektroden leiten die elektrischen Signale weiter zum EMG/EKG Sensor. Dabei dient die schwarze Elektrode als GND (Referenzelektrode), die rote Elektrode als Vcc (Versorgungsspannung) und die weiße Elektrode als Signalelektrode (A0).
+- Der EMG/EKG Sensor ist mit den Elektroden verbunden und wandelt die elektrische Aktivität, welche bei der Muskelkontraktion entsteht, in ein analoges Signal um, welches er anschließend weiterleitet.
+- Der ADC Konverter wird verwendet, sodass das analoge Signal genauer unterteilt, abgebildet bzw. umgewandelt werden kann als beim eingebauten ADC des Mikrocontrollers.
+- Der Mikrocontroller empfängt auf A0 das Signal des ADC, liefert die Versorgungsspannung Vcc und den GND. Ebenso ist er mittels einem USB-Kabel mit dem Laptop verbunden und leitet die Daten an diesen weiter.
+- Am Laptop werden mittels dem seriellen Plotter von Arduino IDE die Daten aufgezeichnet und gespeichert.

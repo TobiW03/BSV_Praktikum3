@@ -1,0 +1,14 @@
+3. Stellen Sie sich vor, Sie versuchen, Ihren Bizeps zu kontrahieren.
+
+(a) Wie kann ein einzelnes motorisches Neuron, ausgehend von der neuromuskulären Verbindung, ein Aktionspotenzial in einer Muskelfaser auslösen? (1 Absatz; 1 Punkt)
+
+Ein motorisches Neuron sendet ein elektrisches Signal (Aktionspotenzial) entlang seines Axons, das die neuromuskuläre Endplatte erreicht. Dort wird der Neurotransmitter Acetylcholin (ACh) in den synaptischen Spalt freigesetzt. ACh bindet an die Rezeptoren der postsynaptischen Membran der Muskelfaser (Sarkolemm), wodurch Natrium-Ionen (Na⁺) in die Muskelfaser einströmen. Dies depolarisiert die Membran und löst ein Muskelaktionspotenzial aus, das sich entlang der Muskelfaser ausbreitet.
+
+(b) Wie führt ein Aktionspotenzial in einer Muskelfaser zu einer Muskelkontraktion? (1 Absatz; 1 Punkt)
+
+Das Muskelaktionspotenzial breitet sich entlang der Muskelfaser und durch das T-Tubuli-System aus, wodurch Kalzium-Ionen (Ca²⁺) aus dem sarkoplasmatischen Retikulum (SR) freigesetzt werden. Die erhöhten Kalzium-Konzentrationen binden an das Protein Troponin. Dadurch verschiebt sich Tropomyosin und gibt die Bindungsstellen für Myosin an den Aktinfilamenten frei. Myosin bindet an Aktin und führt durch die Querbrückenbildung wiederholte Kontraktionszyklen (Power-Strokes) durch, was letztlich die Muskelkontraktion erzeugt.
+
+Quellen:
+https://studyflix.de/biologie/muskelkontraktion-2806
+https://link.springer.com/chapter/10.1007/978-3-540-78570-5_1
+Anatomievorlesungen 2. Semester

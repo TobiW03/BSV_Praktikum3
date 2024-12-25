@@ -1,0 +1,23 @@
+Flo:
+Startpunkte der Bursts: [ 658 4595 7495]
+Endpunkte der Bursts: [3039 6601 9667]
+Mittelwerte der Bursts: [11.345441945132654, 21.336248439661244, 21.78974306418793]
+Persönlicher MVC: 18.157144482993942 mV
+
+Eric:
+Startpunkte der Bursts: [ 329 3837 6161]
+Endpunkte der Bursts: [2904 5922 8425]
+Mittelwerte der Bursts: [12.306014757764013, 16.899669451688084, 13.034036137219127]
+Persönlicher MVC: 14.07990678222374 mV
+
+Felix:
+Startpunkte der Bursts: [ 212 3381 6327]
+Endpunkte der Bursts: [2961 5551 8256]
+Mittelwerte der Bursts: [31.666604967108814, 14.449755960483783, 22.695449042958987]
+Persönlicher MVC: 22.93726999018386 mV
+
+Tobi:
+Startpunkte der Bursts: [ 283 2666 5213]
+Endpunkte der Bursts: [2246 4862 7523]
+Mittelwerte der Bursts: [28.0284304699389, 21.436324806987052, 19.97155387619701]
+Persönlicher MVC: 23.14543638437432 mV

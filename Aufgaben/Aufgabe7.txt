@@ -1,0 +1,5 @@
+Beschreiben Sie kurz den Aufbau Ihres MVC-Experiments. Warum erlaubt dieser Aufbau dem Muskel, sich maximal zu kontrahieren?
+
+In unserem MVC-Experiment positionieren wir den Oberarm vertikal und den Unterarm im rechten Winkel dazu (90°-Beugung im Ellbogengelenk). Die Hand greift unter den Tisch, um die maximale isometrische Muskelkontraktion des Bizeps zu erzeugen. Währenddessen versuchen wir, den Tisch mit maximaler Kraft hochzuheben, ohne den Winkel im Ellbogengelenk zu verändern. Um die Bewegung der EMG-Kabel zu minimieren, achten wir darauf, die Kabel ruhig zu halten.
+
+Durch die 90° im Ellenbogengelenk kann der Bizeps eine große Hebelwirkung entfalten. Dadurch wird die maximale isometrische Kraft erreicht. Der Tisch wirkt als Widerstand gegen den Arm, sodass keine tatsächliche Bewegung entsteht und der Muskel unter maximaler Beanspruchung arbeitet. Durch das Fixieren der Kabel versuchen wir Störfaktoren zu minimieren.
