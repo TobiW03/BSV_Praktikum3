@@ -83,7 +83,7 @@ fatigue_processed = process_emg(fatigue, sampling_frequency)
 weights_processed['emg_envelope_normalized'] = weights_processed['emg_envelope'] / MVC * 100
 
 # Weights plotting
-plt.figure()
+"""plt.figure()
 
 plt.subplot(2, 1, 1)
 plt.plot(weights_processed['t'], weights_processed['emg_envelope_normalized'], label='Filtered EMG (Normalized)')
@@ -92,7 +92,7 @@ plt.title('Weights Experiment')
 plt.xlabel('Time [s]')
 plt.ylabel('EMG [% MVC]')
 plt.grid()
-plt.show()
+plt.show()"""
 
 import Lab3Functions as lf3
 import numpy as np
@@ -112,20 +112,25 @@ weights3 = pd.read_csv('Weight3.txt', delimiter=';')  # 10 kg
 weights1_length = len(weights1)
 weights2_length = len(weights2)
 weights3_length = len(weights3)
-
 weights1_processed = weights_processed[:weights1_length]
-weights2_processed = weights_processed[ weights1_length:weights1_length+weights2_length]
+weights2_processed = weights_processed[weights1_length:weights1_length+weights2_length]
 weights3_processed = weights_processed[weights1_length+weights2_length:weights1_length+weights2_length+weights3_length]
+
 # Zeit von weights1-3 jeweils von 0 starten lassen
-weights1_processed['t'] = weights1_processed['t'] - weights1_processed['t'].iloc[0]
-weights2_processed['t'] = weights2_processed['t'] - weights2_processed['t'].iloc[0]
-weights3_processed['t'] = weights3_processed['t'] - weights3_processed['t'].iloc[0]
+weights1_processed['t'] = (weights1_processed['t'] - weights1_processed['t'].iloc[0]) / 1000
+weights2_processed['t'] = (weights2_processed['t'] - weights2_processed['t'].iloc[0]) / 1000
+weights3_processed['t'] = (weights3_processed['t'] - weights3_processed['t'].iloc[0]) / 1000
+
+# Nur die ersten 10 Sekunden der Daten behalten
+weights1_processed = weights1_processed[weights1_processed['t'] <= 10]S
+weights2_processed = weights2_processed[weights2_processed['t'] <= 10]
+weights3_processed = weights3_processed[weights3_processed['t'] <= 10]
 
 # Plotten von weights1
 plt.figure()
 plt.subplot(3, 1, 1)
-plt.plot(weights1_processed['t'], weights1_processed['emg_envelope_normalized'], label='2.5 kg')
-plt.title('Weights Experiment - 2.5 kg')
+plt.plot(weights1_processed['t'], weights1_processed['emg_envelope_normalized'], label='2,5 kg')
+plt.title('Experiment - 2,5 kg')
 plt.xlabel('Zeit in s')
 plt.ylabel('Anteil von MVC in %')
 plt.grid()
@@ -133,7 +138,7 @@ plt.grid()
 # Plotten von weights2
 plt.subplot(3, 1, 2)
 plt.plot(weights2_processed['t'], weights2_processed['emg_envelope_normalized'], label='5 kg')
-plt.title('Weights Experiment - 5 kg')
+plt.title('Experiment - 5 kg')
 plt.xlabel('Zeit in s')
 plt.ylabel('Anteil von MVC in %')
 plt.grid()
@@ -141,7 +146,7 @@ plt.grid()
 # Plotten von weights3
 plt.subplot(3, 1, 3)
 plt.plot(weights3_processed['t'], weights3_processed['emg_envelope_normalized'], label='10 kg')
-plt.title('Weights Experiment - 10 kg')
+plt.title('Experiment - 10 kg')
 plt.xlabel('Zeit in s')
 plt.ylabel('Anteil von MVC in %')
 plt.grid()
