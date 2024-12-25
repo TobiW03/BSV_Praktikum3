@@ -116,15 +116,20 @@ weights1_processed = weights_processed[:weights1_length]
 weights2_processed = weights_processed[weights1_length:weights1_length+weights2_length]
 weights3_processed = weights_processed[weights1_length+weights2_length:weights1_length+weights2_length+weights3_length]
 
-# Zeit von weights1-3 jeweils von 0 starten lassen
+# Zeit von millisekunden auf Sekunden umwandeln
 weights1_processed['t'] = (weights1_processed['t'] - weights1_processed['t'].iloc[0]) / 1000
 weights2_processed['t'] = (weights2_processed['t'] - weights2_processed['t'].iloc[0]) / 1000
 weights3_processed['t'] = (weights3_processed['t'] - weights3_processed['t'].iloc[0]) / 1000
 
-# Nur die ersten 10 Sekunden der Daten behalten
-weights1_processed = weights1_processed[weights1_processed['t'] <= 10]S
-weights2_processed = weights2_processed[weights2_processed['t'] <= 10]
-weights3_processed = weights3_processed[weights3_processed['t'] <= 10]
+# Daten auf die Haltephase beschränken
+weights1_processed = weights1_processed[(weights1_processed['t'] >= 1) & (weights1_processed['t'] <= 10)]
+weights2_processed = weights2_processed[(weights2_processed['t'] >= 3) & (weights2_processed['t'] <= 12)]
+weights3_processed = weights3_processed[(weights3_processed['t'] >= 0) & (weights3_processed['t'] <= 9)]
+
+# Zeit von weights1-3 jeweils von 0 starten lassen
+weights1_processed['t'] = weights1_processed['t'] - weights1_processed['t'].iloc[0]
+weights2_processed['t'] = weights2_processed['t'] - weights2_processed['t'].iloc[0]
+weights3_processed['t'] = weights3_processed['t'] - weights3_processed['t'].iloc[0]
 
 # Plotten von weights1
 plt.figure()
