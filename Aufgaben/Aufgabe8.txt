@@ -1,0 +1,19 @@
+
+Die physiologischen Mechanismen, die der Beziehung zwischen relativer Muskelaktivität und Größe des Gewichts/Widerstands zugrunde liegen, lassen sich wie folgt erklären:
+
+1. Rekrutierung motorischer Einheiten: Mit zunehmendem Widerstand werden mehr motorische Einheiten aktiviert, um die erforderliche Kraft zu erzeugen[1]. Dies führt zu einer erhöhten EMG-Aktivität.
+
+2. Frequenzierung: Bei steigender Belastung erhöht sich die Feuerungsrate der motorischen Einheiten, was zu einer verstärkten EMG-Amplitude führt[1].
+
+3. Kalzium-Freisetzung: Mit steigendem Widerstand wird mehr Kalzium aus dem sarkoplasmatischen Retikulum freigesetzt, was zu einer stärkeren Interaktion zwischen Aktin und Myosin und somit zu einer höheren Muskelaktivität führt[2].
+
+4. ATP-Verbrauch: Bei höheren Lasten wird mehr ATP benötigt, um die Aktin-Myosin-Querbrücken zu lösen, was zu einer erhöhten metabolischen Aktivität und EMG-Amplitude führt[2].
+
+5. Neuromuskuläre Anpassung: Bei wiederholter Belastung kann es zu einer verbesserten neuromuskulären Ansteuerung kommen, was die EMG-Aktivität bei gleicher Last reduzieren kann[1].
+
+Citations:
+[1] https://eplus.uni-salzburg.at/download/pdf/8353373.pdf
+[2] https://www.studysmarter.de/ausbildung/ausbildung-in-der-medizin/physiotherapeut-ausbildung/muskelfunktion/
+
+
+Der Graph kann bei Aufgabe8.py ausgegeben werden
