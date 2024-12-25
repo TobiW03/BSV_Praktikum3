@@ -126,3 +126,5 @@ fig.update_yaxes(title="Rectified EMG", row=4, col=1)
 fig.update_yaxes(title="Envelope", row=4, col=2)
 
 fig.show()
+
+

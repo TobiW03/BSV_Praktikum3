@@ -61,7 +61,7 @@ def get_bursts(mvc_emg_filtered, weights_emg_filtered, fatigue_emg_filtered):
             
         tellme('Choose start of activity')    
         s = plt.ginput(1)
-        tellme('Choose end of activity')   
+        tellme('Choose end of activity')
         e = plt.ginput(1)
         s1 = s[0]
         e1 = e[0]
