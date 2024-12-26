@@ -1,8 +1,10 @@
+import scipy
 import Lab3Functions as lf3
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 from scipy.signal import butter, filtfilt, hilbert
+
 # Funktionen zur EMG-Verarbeitung
 def remove_offset(emg):
     """Entfernt Mittel um Offset zu eliminieren"""
@@ -117,5 +119,98 @@ fatigue1_processed['t'] = fatigue1_processed['t'] - fatigue1_processed['t'].iloc
 fatigue2_processed['t'] = fatigue2_processed['t'] - fatigue2_processed['t'].iloc[0]
 fatigue3_processed['t'] = fatigue3_processed['t'] - fatigue3_processed['t'].iloc[0]
 
+# Define beginning, middle, and end segments with fixed 0.5 second intervals
+def get_fixed_segment(data, start_time, duration=0.5):
+    end_time = start_time + duration
+    return data[(data['t'] >= start_time) & (data['t'] < end_time)]
+
+# Anfang, Mitte, Ende von Bursts
+fatigue1_processed_beginning = get_fixed_segment(fatigue1_processed, 0)
+fatigue2_processed_beginning = get_fixed_segment(fatigue2_processed, 0)
+fatigue3_processed_beginning = get_fixed_segment(fatigue3_processed, 0)
+
+fatigue1_processed_middle = get_fixed_segment(fatigue1_processed, 7)
+fatigue2_processed_middle = get_fixed_segment(fatigue2_processed, 7)
+fatigue3_processed_middle = get_fixed_segment(fatigue3_processed, 7)
+
+fatigue1_processed_end = get_fixed_segment(fatigue1_processed, 13)
+fatigue2_processed_end = get_fixed_segment(fatigue2_processed, 13)
+fatigue3_processed_end = get_fixed_segment(fatigue3_processed, 13)
+
+print(fatigue1_processed_beginning['emg_filtered'])
+power1_beginning,frequencies1_beginning= lf3.get_power(fatigue1_processed_beginning['emg_filtered'], 411.76)
+power2_beginning,frequencies2_beginning= lf3.get_power(fatigue2_processed_beginning['emg_filtered'], 411.76)
+power3_beginning,frequencies3_beginning= lf3.get_power(fatigue3_processed_beginning['emg_filtered'], 411.76)
+
+power1_middle,frequencies1_middle= lf3.get_power(fatigue1_processed_middle['emg_filtered'], 411.76)
+power2_middle,frequencies2_middle= lf3.get_power(fatigue2_processed_middle['emg_filtered'], 411.76)
+power3_middle,frequencies3_middle= lf3.get_power(fatigue3_processed_middle['emg_filtered'], 411.76)
+
+power1_end,frequencies1_end= lf3.get_power(fatigue1_processed_end['emg_filtered'], 411.76)
+power2_end,frequencies2_end= lf3.get_power(fatigue2_processed_end['emg_filtered'], 411.76)
+power3_end,frequencies3_end= lf3.get_power(fatigue3_processed_end['emg_filtered'], 411.76)
+
+#### Aufgabe 9 Plot ####
+# Plot frequency1 for Beginning segment only
+plt.figure()
+
+# Raw power spectrum for Beginning segment
+plt.plot(frequencies1_beginning, power1_beginning, label='Rohes Leistungsspektrum', linestyle='-')
+
+# Filtered power spectrum using Butterworth filter with cutoff frequency of 40Hz
+def butter_lowpass_filter(data, cutoff, fs, order=2):
+    nyquist = 0.5 * fs
+    normal_cutoff = cutoff / nyquist
+    b, a = butter(order, normal_cutoff, btype='low', analog=False)
+    return filtfilt(b, a, data)
+
+filtered_power1_beginning = butter_lowpass_filter(power1_beginning, 40, sampling_frequency)
+
+plt.plot(frequencies1_beginning, filtered_power1_beginning, label='Gefiltertes Leistungsspektrum', linestyle='--')
+
+# Average frequency of filtered power spectrum for Beginning segment
+average_freq = np.sum(frequencies1_beginning * filtered_power1_beginning) / np.sum(filtered_power1_beginning)
+
+plt.axvline(average_freq, color='r', linestyle='-.', label='Durchschnittsfrequenz')
+
+plt.xlabel('Frequenz in Hz')
+plt.ylabel('Leistung in a.u.')
+plt.legend()
+plt.show()
+
+###Aufgabe 9 Plot####
+
+# Subplot für Anfang, Mitte, Ende für die drei Segmente
+fig, axs = plt.subplots(3, 3, figsize=(15, 10))
+
+segments = ['Anfang', 'Mitte', 'Ende']
+fatigue_data = [
+    (fatigue1_processed_beginning, fatigue1_processed_middle, fatigue1_processed_end),
+    (fatigue2_processed_beginning, fatigue2_processed_middle, fatigue2_processed_end),
+    (fatigue3_processed_beginning, fatigue3_processed_middle, fatigue3_processed_end)
+]
+
+for i, (beginning, middle, end) in enumerate(fatigue_data):
+    for j, segment in enumerate([beginning, middle, end]):
+        power, frequencies = lf3.get_power(segment['emg_filtered'], sampling_frequency)
+        filtered_power = butter_lowpass_filter(power, 40, sampling_frequency)
+        
+        # Calculate average frequency
+        average_freq = np.sum(frequencies * filtered_power) / np.sum(filtered_power)
+
+        axs[i, j].plot(frequencies, power, label='Rohes Leistungsspektrum', linestyle='-')
+        axs[i, j].plot(frequencies, filtered_power, label='Gefiltertes Leistungsspektrum', linestyle='--')
+        axs[i, j].axvline(average_freq, color='r', linestyle='-.', label='Durchschnittsfrequenz')
+        axs[i, j].set_title(f'Segment {segments[j]} - Fatigue {i+1}')
+        axs[i, j].set_xlabel('Frequenz in Hz')
+        axs[i, j].set_ylabel('Leistung in a.u.')
+        axs[i, j].legend()
+
+plt.tight_layout()
+plt.show()
 
 
+# Median frequency of filtered power spectrum for Beginning segment
+area_freq = scipy.integrate.cumtrapz(filtered_power1_beginning, frequencies1_beginning, initial=0)
+total_power = area_freq[-1]
+median_freq = frequencies1_beginning[np.where(area_freq >= total_power / 2)[0][0]]
