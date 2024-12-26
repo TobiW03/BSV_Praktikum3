@@ -94,11 +94,6 @@ plt.ylabel('EMG [% MVC]')
 plt.grid()
 plt.show()"""
 
-import Lab3Functions as lf3
-import numpy as np
-import matplotlib.pyplot as plt
-import pandas as pd
-
 # MVC-Wert (Maximum Voluntary Contraction)
 MVC = 18.157144482993942  # mV
 sampling_frequency = 411.76  # Hz
