@@ -1,0 +1,3 @@
+Plot ist bei Aufgabe9.txt zu finden
+Erster Plot für den Laborbericht
+Zweiter Plot nur für den Maincode

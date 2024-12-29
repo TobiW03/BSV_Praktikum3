@@ -1,0 +1,25 @@
+Gerne, hier ist der Text mit weniger und eindeutigeren Zitaten:
+
+## Leistungsspektrum des EMG
+
+Das Leistungsspektrum stellt den Frequenzgehalt des gemessenen EMG-Signals dar und ermöglicht Rückschlüsse auf die Aktivität verschiedener Muskelfasertypen .
+
+Das Leistungsspektrum wird durch eine Frequenzanalyse des EMG-Signals erstellt. Dabei wird das EMG-Rohsignal in Frequenzkomponenten zerlegt, deren Leistung (Amplitude) berechnet und als Graph dargestellt. Die x-Achse repräsentiert die Frequenz, die y-Achse die Leistung. Der wesentliche Frequenzanteil des EMG-Summenpotentials liegt zwischen etwa 20 und 500 Hz (Bei unseren Messungen zwischen 20 und 200).
+
+## Interpretation des Leistungsspektrums und Fasertypen
+
+Die verschiedenen Frequenzbereiche im Leistungsspektrum lassen sich den unterschiedlichen Muskelfasertypen zuordnen :
+
+- Niedrige Frequenzen (20-50 Hz): Repräsentieren hauptsächlich langsame Typ-I-Fasern
+- Mittlere Frequenzen (50-150 Hz): Mischung aus Typ-I- und Typ-II-Fasern
+- Hohe Frequenzen (>150 Hz): Vorwiegend schnelle Typ-II-Fasern
+
+Typ-I-Fasern (langsame Fasern) zeichnen sich durch langsame Kontraktionsgeschwindigkeit, hohe Ausdauer und niedrige Kraftentwicklung aus. Typ-II-Fasern (schnelle Fasern) hingegen haben eine schnelle Kontraktionsgeschwindigkeit, geringere Ausdauer und hohe Kraftentwicklung .
+
+Das Leistungsspektrum ermöglicht auch die Untersuchung der muskulären Ermüdung. Bei Ermüdung verschiebt sich das Spektrum zu niedrigeren Frequenzen, was durch die Berechnung der Medianfrequenz quantifiziert werden kann .
+
+
+Citation
+https://www.medi-karriere.de/magazin/emg-elektromyographie/
+https://register.awmf.org/assets/guidelines/002-016l_S2k_Oberflaechen-Elektromyographie-in-der-Arbeitsmedizin-Arbeitsphysiologie-Arbeitswissenschaft_2023-03_1.pdf
+

@@ -210,7 +210,31 @@ plt.tight_layout()
 plt.show()
 
 
+#### Aufgabe 10 Plot ####
+# Plot frequency1 for Beginning segment only
+plt.figure()
+
+filtered_power1_beginning = butter_lowpass_filter(power1_beginning, 40, sampling_frequency)
+
+plt.plot(frequencies1_beginning, filtered_power1_beginning, label='Gefiltertes Leistungsspektrum', linestyle='-')
+
+# Marking the fiber type regions with hatching patterns for better visibility in black and white prints
+plt.axvspan(20, 50, color='blue', alpha=0.3, hatch='/', edgecolor='black', label='Langsame Typ-I-Fasern (20-50 Hz)')
+plt.axvspan(50, 150, color='red', alpha=0.3, hatch='\\', edgecolor='black', label='Mischung aus Typ-I- und Typ-II-Fasern (50-150 Hz)')
+plt.axvspan(150, max(frequencies1_beginning), color='green', alpha=0.3, hatch='|', edgecolor='black', label='Schnelle Typ-II-Fasern (>150 Hz)')
+
+plt.xlabel('Frequenz in Hz')
+plt.ylabel('Leistung in a.u.')
+plt.legend(loc='upper right')
+plt.show()
+
+###Aufgabe 10 Plot####
+
+
+
 # Median frequency of filtered power spectrum for Beginning segment
 area_freq = scipy.integrate.cumtrapz(filtered_power1_beginning, frequencies1_beginning, initial=0)
 total_power = area_freq[-1]
 median_freq = frequencies1_beginning[np.where(area_freq >= total_power / 2)[0][0]]
+
+
