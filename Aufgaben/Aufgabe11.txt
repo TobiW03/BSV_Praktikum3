@@ -1,0 +1,11 @@
+Graph ist der vierte der bei bei Aufgabe 9.....py. angezeigt wird
+
+Text zu der Abbildung:
+
+---
+
+### Muster und Konsistenz der Daten  
+Beim ersten Ermüdungsexperiment zeigt die Medianfrequenz den erwarteten kontinuierlichen Abfall, was typisch für muskuläre Ermüdungsprozesse ist. Im zweiten Experiment steigt die Medianfrequenz zunächst an und fällt anschließend ab, während sie im dritten Experiment nach einem anfänglichen Abfall eine Stabilisierung mit leichtem Anstieg aufweist. Diese inkonsistenten Muster könnten auf interindividuelle Unterschiede, variationsbedingte Belastungsprofile oder methodische Einflüsse zurückzuführen sein.
+
+---
+

@@ -72,6 +72,14 @@ def process_emg(data, fs):
     })
     return result
 
+
+def calculate_median_frequency(power, frequencies):
+    area_freq = scipy.integrate.cumtrapz(power, frequencies, initial=0)
+    total_power = area_freq[-1]
+    median_freq = frequencies[np.where(area_freq >= total_power / 2)[0][0]]
+    return median_freq
+
+
 sampling_frequency = 411.76 # Hz
 weights, mvc, fatigue = lf3.import_data(';')
 mvc_processed = process_emg(mvc, sampling_frequency)
@@ -125,15 +133,15 @@ def get_fixed_segment(data, start_time, duration=0.5):
     return data[(data['t'] >= start_time) & (data['t'] < end_time)]
 
 # Anfang, Mitte, Ende von Bursts
-fatigue1_processed_beginning = get_fixed_segment(fatigue1_processed, 0)
-fatigue2_processed_beginning = get_fixed_segment(fatigue2_processed, 0)
-fatigue3_processed_beginning = get_fixed_segment(fatigue3_processed, 0)
+fatigue1_processed_beginning = get_fixed_segment(fatigue1_processed, 1) # 0-0.5s
+fatigue2_processed_beginning = get_fixed_segment(fatigue2_processed, 1)
+fatigue3_processed_beginning = get_fixed_segment(fatigue3_processed, 1)
 
-fatigue1_processed_middle = get_fixed_segment(fatigue1_processed, 7)
+fatigue1_processed_middle = get_fixed_segment(fatigue1_processed, 7)   # 7-7.5s
 fatigue2_processed_middle = get_fixed_segment(fatigue2_processed, 7)
 fatigue3_processed_middle = get_fixed_segment(fatigue3_processed, 7)
 
-fatigue1_processed_end = get_fixed_segment(fatigue1_processed, 13)
+fatigue1_processed_end = get_fixed_segment(fatigue1_processed, 13)    # 13-13.5s
 fatigue2_processed_end = get_fixed_segment(fatigue2_processed, 13)
 fatigue3_processed_end = get_fixed_segment(fatigue3_processed, 13)
 
@@ -231,10 +239,39 @@ plt.show()
 ###Aufgabe 10 Plot####
 
 
+####Aufgabe 11 Plot###
+# Define beginning, middle, and end segments with fixed 0.5 second interval
+# Analyze fatigue data and calculate median frequencies
+median_freq1_beginning = calculate_median_frequency(power1_beginning, frequencies1_beginning)
+median_freq1_middle = calculate_median_frequency(power1_middle, frequencies1_middle)
+median_freq1_end = calculate_median_frequency(power1_end, frequencies1_end)
 
-# Median frequency of filtered power spectrum for Beginning segment
-area_freq = scipy.integrate.cumtrapz(filtered_power1_beginning, frequencies1_beginning, initial=0)
-total_power = area_freq[-1]
-median_freq = frequencies1_beginning[np.where(area_freq >= total_power / 2)[0][0]]
+median_freeq2_beginning = calculate_median_frequency(power2_beginning, frequencies2_beginning)
+median_freeq2_middle = calculate_median_frequency(power2_middle, frequencies2_middle)
+median_freeq2_end = calculate_median_frequency(power2_end, frequencies2_end)
+
+median_freeq3_beginning = calculate_median_frequency(power3_beginning, frequencies3_beginning)
+median_freeq3_middle = calculate_median_frequency(power3_middle, frequencies3_middle)
+median_freeq3_end = calculate_median_frequency(power3_end, frequencies3_end)
+
+# Combine median frequencies for all fatigues into a list
+median_freqs = [median_freq1_beginning, median_freq1_middle, median_freq1_end]
+median_freqs2 = [median_freeq2_beginning, median_freeq2_middle, median_freeq2_end]
+median_freqs3 = [median_freeq3_beginning, median_freeq3_middle, median_freeq3_end]
+
+# Plot median frequencies for all fatigues with different markers
+plt.figure()
+plt.plot([1/14*100, 50, 13/14*100], median_freqs, label='Ermüdung 1', marker='o')
+plt.plot([1/14*100, 50, 13/14*100], median_freqs2, label='Ermüdung 2', marker='s')
+plt.plot([1/14*100, 50, 13/14*100], median_freqs3, label='Ergmüdung 3', marker='^')
+plt.xlabel('Zeitpunkt der Messung in %')
+plt.ylabel('Medianfrequenz in Hz')
+plt.xlim(0, 100)  # Set y-axis limit to 100
+plt.legend()
+plt.show()
+####Aufgabe 11 Plot###
+
+
+
 
 
