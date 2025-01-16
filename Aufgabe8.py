@@ -128,28 +128,24 @@ weights3_processed['t'] = weights3_processed['t'] - weights3_processed['t'].iloc
 
 # Plotten von weights1
 plt.figure()
-plt.subplot(3, 1, 1)
 plt.plot(weights1_processed['t'], weights1_processed['emg_envelope_normalized'], label='2,5 kg')
-plt.title('Experiment - 2,5 kg')
 plt.xlabel('Zeit in s')
 plt.ylabel('Anteil von MVC in %')
 plt.grid()
+plt.show()
 
 # Plotten von weights2
-plt.subplot(3, 1, 2)
+plt.figure()
 plt.plot(weights2_processed['t'], weights2_processed['emg_envelope_normalized'], label='5 kg')
-plt.title('Experiment - 5 kg')
 plt.xlabel('Zeit in s')
 plt.ylabel('Anteil von MVC in %')
 plt.grid()
+plt.show()
 
 # Plotten von weights3
-plt.subplot(3, 1, 3)
+plt.figure()
 plt.plot(weights3_processed['t'], weights3_processed['emg_envelope_normalized'], label='10 kg')
-plt.title('Experiment - 10 kg')
 plt.xlabel('Zeit in s')
 plt.ylabel('Anteil von MVC in %')
 plt.grid()
-
-plt.tight_layout()
 plt.show()

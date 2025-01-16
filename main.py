@@ -63,7 +63,7 @@ weights_processed = process_emg(weights, sampling_frequency)
 fatigue_processed = process_emg(fatigue, sampling_frequency)
 
 # Interaktive Auswahl der Bursts
-mvc_s, mvc_e, weights_s, weights_e, fatigue_s, fatigue_e = lf3.get_bursts(
+Smvc_s, mvc_e, weights_s, weights_e, fatigue_s, fatigue_e = lf3.get_bursts(
     mvc_processed['emg_filtered'],
     weights_processed['emg_filtered'],
     fatigue_processed['emg_filtered']
