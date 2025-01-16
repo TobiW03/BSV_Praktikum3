@@ -61,7 +61,7 @@ weights, mvc, fatigue = lf3.import_data(';')
 mvc_processed = process_emg(mvc, sampling_frequency)
 weights_processed = process_emg(weights, sampling_frequency)
 fatigue_processed = process_emg(fatigue, sampling_frequency)
-
+"""
 # Interaktive Auswahl der Bursts
 Smvc_s, mvc_e, weights_s, weights_e, fatigue_s, fatigue_e = lf3.get_bursts(
     mvc_processed['emg_filtered'],
@@ -84,45 +84,37 @@ print("Startpunkte der Bursts:", mvc_s)
 print("Endpunkte der Bursts:", mvc_e)
 print("Mittelwerte der Bursts:", mvc_burst_means)
 print("Persönlicher MVC:", personal_mvc,"mV")
-
+"""
 # Visualisierung der Verarbeitungsstufen
 fig = make_subplots(
-    rows=4, cols=2,
-    subplot_titles=[
-        "Original EMG", "Mean-Corrected EMG",
-        "Unfiltered EMG", "Filtered EMG",
-        "Unrectified EMG", "Rectified EMG",
-        "Rectified EMG", "Envelope"
-    ]
+    rows=2, cols=2
 )
 
-fig.add_trace(go.Scatter(x=(mvc['t'] / 1000), y=mvc['emg'], mode='lines', name="Original EMG"), row=1, col=1)
-fig.add_trace(go.Scatter(x=(mvc['t'] / 1000), y=mvc_processed['emg_no_offset'], mode='lines', name="Mean-Corrected EMG"), row=1, col=2)
-fig.add_trace(go.Scatter(x=(mvc['t'] / 1000), y=mvc_processed['emg_no_offset'], mode='lines', name="Unfiltered EMG"), row=2, col=1)
-fig.add_trace(go.Scatter(x=(mvc['t'] / 1000), y=mvc_processed['emg_filtered'], mode='lines', name="Filtered EMG"), row=2, col=2)
-fig.add_trace(go.Scatter(x=(mvc['t'] / 1000), y=mvc_processed['emg_filtered'], mode='lines', name="Unrectified EMG"), row=3, col=1)
-fig.add_trace(go.Scatter(x=(mvc['t'] / 1000), y=mvc_processed['emg_rectified'], mode='lines', name="Rectified EMG"), row=3, col=2)
-fig.add_trace(go.Scatter(x=(mvc['t'] / 1000), y=mvc_processed['emg_rectified'], mode='lines', name="Rectified EMG"), row=4, col=1)
-fig.add_trace(go.Scatter(x=(mvc['t'] / 1000), y=mvc_processed['emg_envelope'], mode='lines', name="Envelope"), row=4, col=2)
+fig.add_trace(go.Scatter(x=(mvc['t'] / 1000), y=mvc_processed['emg_no_offset'], mode='lines'), row=1, col=1)
+fig.add_trace(go.Scatter(x=(mvc['t'] / 1000), y=mvc_processed['emg_filtered'], mode='lines'), row=1, col=2)
+fig.add_trace(go.Scatter(x=(mvc['t'] / 1000), y=mvc_processed['emg_rectified'], mode='lines'), row=2, col=1)
+fig.add_trace(go.Scatter(x=(mvc['t'] / 1000), y=mvc_processed['emg_envelope'], mode='lines'), row=2, col=2)
 
 fig.update_layout(
-    title="Comparison of MVC Processing Steps",
     height=1200,
     width=1000,
     font=dict(size=14),
     title_font=dict(size=18),
     showlegend=False,
     template="plotly_white",
+    xaxis_title="Zeit in s",
+    yaxis_title="EMG-Signal in mV"
 )
+
 fig.update_xaxes(showgrid=False)
 fig.update_yaxes(showgrid=False)
-fig.update_yaxes(title="Original EMG", row=1, col=1)
-fig.update_yaxes(title="Mean-Corrected EMG", row=1, col=2)
-fig.update_yaxes(title="Unfiltered EMG", row=2, col=1)
-fig.update_yaxes(title="Filtered EMG", row=2, col=2)
-fig.update_yaxes(title="Unrectified EMG", row=3, col=1)
-fig.update_yaxes(title="Rectified EMG", row=3, col=2)
-fig.update_yaxes(title="Rectified EMG", row=4, col=1)
-fig.update_yaxes(title="Envelope", row=4, col=2)
+fig.update_yaxes(title="EMG-Signal in mV", row=1, col=1)
+fig.update_yaxes(title="EMG-Signal in mV", row=1, col=2)
+fig.update_yaxes(title="EMG-Signal in mV", row=2, col=1)
+fig.update_yaxes(title="EMG-Signal in mV", row=2, col=2)
+fig.update_xaxes(title="Zeit in s", row=1, col=1)
+fig.update_xaxes(title="Zeit in s", row=1, col=2)
+fig.update_xaxes(title="Zeit in s", row=2, col=1)
+fig.update_xaxes(title="Zeit in s", row=2, col=2)
 
 fig.show()
