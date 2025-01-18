@@ -227,13 +227,9 @@ filtered_power1_beginning = butter_lowpass_filter(power1_beginning, 40, sampling
 plt.plot(frequencies1_beginning, filtered_power1_beginning, label='Gefiltertes Leistungsspektrum', linestyle='-')
 
 # Marking the fiber type regions with hatching patterns for better visibility in black and white prints
-plt.axvspan(20, 50, color='blue', alpha=0.3, hatch='/', edgecolor='black', label='Langsame Typ-I-Fasern (20-50 Hz)')
-plt.axvspan(50, 150, color='red', alpha=0.3, hatch='\\', edgecolor='black', label='Mischung aus Typ-I- und Typ-II-Fasern (50-150 Hz)')
-plt.axvspan(150, max(frequencies1_beginning), color='green', alpha=0.3, hatch='|', edgecolor='black', label='Schnelle Typ-II-Fasern (>150 Hz)')
 
 plt.xlabel('Frequenz in Hz')
 plt.ylabel('Leistung in a.u.')
-plt.legend(loc='upper right')
 plt.show()
 
 ###Aufgabe 10 Plot####
@@ -263,7 +259,7 @@ median_freqs3 = [median_freeq3_beginning, median_freeq3_middle, median_freeq3_en
 plt.figure()
 plt.plot([1/14*100, 50, 13/14*100], median_freqs, label='Ermüdung 1', marker='o')
 plt.plot([1/14*100, 50, 13/14*100], median_freqs2, label='Ermüdung 2', marker='s')
-plt.plot([1/14*100, 50, 13/14*100], median_freqs3, label='Ergmüdung 3', marker='^')
+plt.plot([1/14*100, 50, 13/14*100], median_freqs3, label='Ermüdung 3', marker='^')
 plt.xlabel('Zeitpunkt der Messung in %')
 plt.ylabel('Medianfrequenz in Hz')
 plt.xlim(0, 100)  # Set y-axis limit to 100
